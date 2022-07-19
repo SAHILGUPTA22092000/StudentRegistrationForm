@@ -36,6 +36,7 @@ class Student {
    
 }
 
+// new page
 
 class Details {
     var students : [Student] = []
@@ -48,7 +49,7 @@ class Details {
         
         students.append(s)
     }
-    
+    //fetchStudent(rollno)
     func showStudentDetails(rollNo : Int32)
     {
         for student in students {
@@ -56,9 +57,9 @@ class Details {
             {
                 print("Name of Student :",student.nameOfStudent)
                 print("Student ID :",student.studentId)
-                let bn = student.addressOfStudent.buildingNumber 
-                let bna = student.addressOfStudent.buildingName
-                let str = student.addressOfStudent.street
+                //_ = student.addressOfStudent.buildingNumber
+                //_ = student.addressOfStudent.buildingName
+                //_ = student.addressOfStudent.street
                 
                 print("Address : \n\(student.addressOfStudent.city),\(student.addressOfStudent.state),\(student.addressOfStudent.pincode)")
                 print("Email Address:",student.emailId)
@@ -66,6 +67,7 @@ class Details {
                 return
             }
         }
+         
         print("Student not Found of Roll No \(rollNo)")
     }
    
