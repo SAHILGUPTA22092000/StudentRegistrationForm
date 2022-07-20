@@ -1,6 +1,6 @@
 import UIKit
 
-class findStudentViewController: UIViewController,UITextFieldDelegate
+class FindStudentViewController: UIViewController,UITextFieldDelegate
 {
     @IBOutlet weak var rollID: UITextField!
     @IBOutlet weak var findStudentSubmitButton: UIButton!
@@ -11,6 +11,7 @@ class findStudentViewController: UIViewController,UITextFieldDelegate
     @IBOutlet weak var foundStudentPhoneNo: UITextField!
     @IBOutlet weak var rollError: UILabel!
     
+    @IBOutlet weak var buttonToPage3: UIButton!
     
     
     @IBAction func rollNoEntered(_ sender: Any) {
@@ -20,12 +21,14 @@ class findStudentViewController: UIViewController,UITextFieldDelegate
             {
                 rollError.text = errorMessage
                 rollError.isHidden = false
+                findStudentSubmitButton.isEnabled = false
             }
             else
             {
                 rollError.isHidden = true
             }
         }
+        checkForValidFSearch()
     }
     func invalidId (_ value : String)->String?
     {
@@ -101,11 +104,13 @@ class findStudentViewController: UIViewController,UITextFieldDelegate
     override func viewDidLoad()
       {
           super.viewDidLoad()
+          checkForValidFSearch()
           rollID.delegate=self
           let tapGesture=UITapGestureRecognizer(target: self, action: #selector(RegisterStudentViewController.tapHandler))
           view.addGestureRecognizer(tapGesture)
           rollError.isHidden=false
           rollError.text=""
+          
           foundStudentName.isHidden=true
           foundStudentId.isHidden=true
           foundStudentAddress.isHidden=true
@@ -121,4 +126,12 @@ class findStudentViewController: UIViewController,UITextFieldDelegate
         textField.resignFirstResponder()
         return true
     }
+    
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        let nextButton = storyboard?.instantiateViewController(withIdentifier: "AllStudentViewController") as! AllStudentViewController
+        //present(nextButton, animated: true)
+        navigationController?.pushViewController(nextButton, animated: true)
+    }
+    
+    
 }

@@ -24,8 +24,7 @@ class Student {
     var phoneNo : String
     var emailId : String
   
-    init(_ name : String,_ rollNo : Int, _ address : Address,_ pNo : String, _ eId : String )
-    {
+    init(_ name : String,_ rollNo : Int, _ address : Address,_ pNo : String, _ eId : String ) {
         nameOfStudent = name
         studentId = rollNo
         addressOfStudent = address

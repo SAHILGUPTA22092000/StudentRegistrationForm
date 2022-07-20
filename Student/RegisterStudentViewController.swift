@@ -315,7 +315,7 @@ class RegisterStudentViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func findButtontToSearchStudentPagePressed(_ sender: Any) {
-        let findButtonPressed = storyboard?.instantiateViewController(withIdentifier: "findStudentViewController") as! findStudentViewController
+        let findButtonPressed = storyboard?.instantiateViewController(withIdentifier: "findStudentViewController") as! FindStudentViewController
         present(findButtonPressed, animated: true)
     }
     

@@ -306,7 +306,7 @@
         <!--Find Student View Controller-->
         <scene sceneID="1he-UG-F4m">
             <objects>
-                <viewController storyboardIdentifier="findStudentViewController" id="ohh-R4-WFa" customClass="findStudentViewController" customModule="Student" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="findStudentViewController" id="ohh-R4-WFa" customClass="FindStudentViewController" customModule="Student" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qdM-n2-o7L">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -376,15 +376,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bp5-uu-xK3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bp5-uu-xK3" userLabel="Next">
                                 <rect key="frame" x="280" y="220" width="90" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bp5-uu-xK3" secondAttribute="height" multiplier="90:31" id="SAG-Iz-G4X"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Next"/>
                                 <connections>
-                                    <segue destination="bM9-Xo-2I1" kind="presentation" id="bm7-60-cpH"/>
+                                    <action selector="nextButtonPressed:" destination="ohh-R4-WFa" eventType="touchUpInside" id="Q1n-7p-wpF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -429,6 +429,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LXx-Wz-6fs"/>
                     <connections>
+                        <outlet property="buttonToPage3" destination="Bp5-uu-xK3" id="d58-pV-aqx"/>
                         <outlet property="findStudentSubmitButton" destination="qM4-fJ-Ber" id="5DO-se-uWx"/>
                         <outlet property="foundStudentAddress" destination="BGi-wu-IXW" id="Ft6-2V-YcB"/>
                         <outlet property="foundStudentEmailId" destination="nvP-Gw-A7A" id="Geh-6o-9j4"/>
@@ -448,11 +449,11 @@
             <objects>
                 <viewController storyboardIdentifier="AllStudentViewController" id="bM9-Xo-2I1" customClass="AllStudentViewController" customModule="Student" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qnt-i9-PIW">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gkx-ti-OmR">
-                                <rect key="frame" x="0.0" y="44" width="390" height="746"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
