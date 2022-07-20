@@ -20,6 +20,7 @@ class RegisterStudentViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var emailId: UITextField!
     @IBOutlet weak var phoneNo: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var nextButtonToFindStudentPage: UIButton!
     
     @IBOutlet weak var nameError: UILabel!
     @IBOutlet weak var idError: UILabel!
@@ -295,9 +296,12 @@ class RegisterStudentViewController: UIViewController,UITextFieldDelegate {
         let rno = Int(rollNumber.text!)!
         let bno = Int(buildingNo.text!)
         
-        collegeDb.addStudent(name: nameOfStudent.text!, rollNo: rno, buildingnumeber: bno, buildingName: buildingName?.text, street: streetName?.text, city: cityName.text!, state: stateName.text!, pincode: pinCode.text!, pNo: phoneNo.text!, eId: emailId.text!)
+        let tempAdress=Address(buildingNumber: bno, buildingName: buildingName?.text, street: streetName?.text, city: cityName.text!, state: stateName.text!, pincode: pinCode.text!)
+        
+        let tempStudent = Student(nameOfStudent.text!,rno,tempAdress,phoneNo.text!,emailId.text!)
+        
+        collegeDb.addStudent(tempStudent)
     
-        collegeDb.showStudentDetails(rollNo: 12)
         resetForm()
         
     }
@@ -308,4 +312,15 @@ class RegisterStudentViewController: UIViewController,UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    
+    @IBAction func findButtontToSearchStudentPagePressed(_ sender: Any) {
+        let findButtonPressed = storyboard?.instantiateViewController(withIdentifier: "findStudentViewController") as! findStudentViewController
+        present(findButtonPressed, animated: true)
+    }
+    
+    
+    
+    
+    
 }

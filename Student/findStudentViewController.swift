@@ -73,11 +73,8 @@ class findStudentViewController: UIViewController,UITextFieldDelegate
             }
             
         }*/
-        let tempStudent = collegeDb.students.filter{
-            student in
-            return student.studentId==Int(rollID.text!)
-        }
-        if tempStudent.isEmpty
+        let tempStudent = collegeDb.searchStudentWithRollNo(rollNo: Int(rollID.text!)! )
+        guard let temp=tempStudent else
         {
             foundStudentName.isHidden = false
             foundStudentName.text = "Student Not Found"
@@ -85,19 +82,21 @@ class findStudentViewController: UIViewController,UITextFieldDelegate
             foundStudentAddress.isHidden = true
             foundStudentEmailId.isHidden = true
             foundStudentPhoneNo.isHidden = true
+            return
         }
-        else {
+        
         foundStudentName.isHidden = false
         foundStudentId.isHidden = false
         foundStudentAddress.isHidden = false
         foundStudentEmailId.isHidden = false
         foundStudentPhoneNo.isHidden = false
-            foundStudentName.text=tempStudent.first!.nameOfStudent
-            foundStudentId.text="\(tempStudent.first!.studentId)"
-            foundStudentAddress.text="\(tempStudent.first!.addressOfStudent.city),\(tempStudent.first!.addressOfStudent.state),\(tempStudent.first!.addressOfStudent.pincode)"
-            foundStudentEmailId.text=tempStudent.first?.emailId
-            foundStudentPhoneNo.text=tempStudent.first?.phoneNo
-        }
+            foundStudentName.text=temp.nameOfStudent
+            foundStudentId.text=String(temp.studentId)
+        // Address not complete
+            foundStudentAddress.text="\(temp.addressOfStudent.city),\(temp.addressOfStudent.state),\(temp.addressOfStudent.pincode)"
+            foundStudentEmailId.text=temp.emailId
+            foundStudentPhoneNo.text=temp.phoneNo
+        
     }
     override func viewDidLoad()
       {
