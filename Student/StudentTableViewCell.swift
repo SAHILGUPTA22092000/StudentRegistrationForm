@@ -11,7 +11,7 @@ class StudentTableViewCell: UITableViewCell {
     
     static let studentTableViewCellIdentifier = "StudentTableViewCell"
     
-    static func nib()->UINib {
+    static func nib() -> UINib {
         return UINib(nibName: "StudentTableViewCell", bundle: nil)
     }
     
@@ -19,8 +19,8 @@ class StudentTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLbl: UILabel!
     
     func cellConfigure(with title : String, imageName : String ) {
-        nameLbl.text=title
-        studentImageView.image=UIImage(systemName: imageName)
+        nameLbl.text = title
+        studentImageView.image = UIImage(systemName: imageName)
     }
     
     override func awakeFromNib() {

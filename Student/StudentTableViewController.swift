@@ -21,7 +21,7 @@ class StudentTableViewController: UIViewController {
         studentTableView.register(StudentTableViewCell.nib(), forCellReuseIdentifier: StudentTableViewCell.studentTableViewCellIdentifier)
         studentTableView.delegate = self
         studentTableView.dataSource = self
-        studentTableView.rowHeight=UITableView.automaticDimension
+        studentTableView.rowHeight = UITableView.automaticDimension
 //        studentTableView.estimatedRowHeight=100
     }
 }

@@ -59,12 +59,12 @@ class FindStudentViewController: UIViewController {
         guard let rollNo = rollNoTF.text else { return }
         if let tempStudent = collegeDb.fetchStudent(rollNo: rollNo ) {
                 shouldShowStudentDetails(showName: false, showOthers: false)
-                nameTF.text=tempStudent.nameOfStudent
-                idTF.text=String(tempStudent.studentId)
+                nameTF.text = tempStudent.nameOfStudent
+                idTF.text = String(tempStudent.studentId)
             // Address not complete
-                addressTF.text="\(tempStudent.addressOfStudent.city),\(tempStudent.addressOfStudent.state),\(tempStudent.addressOfStudent.pincode)"
-                emailTF.text=tempStudent.emailId
-                phoneNoTF.text=tempStudent.phoneNo
+                addressTF.text = "\(tempStudent.addressOfStudent.city),\(tempStudent.addressOfStudent.state),\(tempStudent.addressOfStudent.pincode)"
+                emailTF.text = tempStudent.emailId
+                phoneNoTF.text = tempStudent.phoneNo
         }
         else {
             nameTF.text = "Student Not Found"
@@ -84,11 +84,11 @@ class FindStudentViewController: UIViewController {
     override func viewDidLoad() {
           super.viewDidLoad()
           submitButton.isEnabled = false
-          rollNoTF.delegate=self
-          let tapGesture=UITapGestureRecognizer(target: self, action: #selector(tapHandler))
+          rollNoTF.delegate = self
+          let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
           view.addGestureRecognizer(tapGesture)
-          rollErrorLbl.isHidden=false
-          rollErrorLbl.text=""
+          rollErrorLbl.isHidden = false
+          rollErrorLbl.text = ""
           shouldShowStudentDetails(showName: true, showOthers: true)
 
       }

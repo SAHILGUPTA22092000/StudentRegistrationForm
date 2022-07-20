@@ -61,13 +61,13 @@ class RegisterStudentViewController: UIViewController {
         emailErrorLbl.isHidden = false
         phoneErrorLbl.isHidden = false
         
-        nameErrorLbl.text=""
-        rollNoErrorLbl.text=""
-        cityErrorLbl.text=""
-        stateErrorLbl.text=""
-        pinCodeErrorLbl.text=""
-        emailErrorLbl.text=""
-        phoneErrorLbl.text=""
+        nameErrorLbl.text = ""
+        rollNoErrorLbl.text = ""
+        cityErrorLbl.text = ""
+        stateErrorLbl.text = ""
+        pinCodeErrorLbl.text = ""
+        emailErrorLbl.text = ""
+        phoneErrorLbl.text = ""
         
         nameTF.text = ""
         nameTF.text = ""
@@ -209,7 +209,7 @@ class RegisterStudentViewController: UIViewController {
             return "Field is Required "
         }
         let characters = CharacterSet.letters
-        let nonCharacters=characters.inverted
+        let nonCharacters = characters.inverted
         if value.rangeOfCharacter(from: nonCharacters) != nil {
             return "Field can only Contain Letters"
         }
@@ -250,7 +250,7 @@ class RegisterStudentViewController: UIViewController {
         guard let rno = Int(rollText) else { return }
         let bno = Int(buildingNoTF.text!)
         
-        let tempAdress=Address(buildingNumber: bno, buildingName: buildingNameTF?.text, street: streetTF?.text, city: cityTF.text!, state: stateTF.text!, pincode: pinCodeTF.text!)
+        let tempAdress = Address(buildingNumber: bno, buildingName: buildingNameTF?.text, street: streetTF?.text, city: cityTF.text!, state: stateTF.text!, pincode: pinCodeTF.text!)
         
         let tempStudent = Student(nameTF.text!,rno,tempAdress,phoneNoTF.text!,emailTF.text!)
         
