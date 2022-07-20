@@ -1,62 +1,42 @@
 import UIKit
 
-class FindStudentViewController: UIViewController,UITextFieldDelegate
-{
-    @IBOutlet weak var rollID: UITextField!
-    @IBOutlet weak var findStudentSubmitButton: UIButton!
-    @IBOutlet weak var foundStudentName: UITextField!
-    @IBOutlet weak var foundStudentId: UITextField!
-    @IBOutlet weak var foundStudentAddress: UITextField!
-    @IBOutlet weak var foundStudentEmailId: UITextField!
-    @IBOutlet weak var foundStudentPhoneNo: UITextField!
-    @IBOutlet weak var rollError: UILabel!
+class FindStudentViewController: UIViewController {
+    @IBOutlet weak var rollNoTF: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var idTF: UITextField!
+    @IBOutlet weak var addressTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var phoneNoTF: UITextField!
+    @IBOutlet weak var rollErrorLbl: UILabel!
     
-    @IBOutlet weak var buttonToPage3: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     
     @IBAction func rollNoEntered(_ sender: Any) {
-        if let id = rollID.text
-        {
-            if let errorMessage = invalidId(id)
-            {
-                rollError.text = errorMessage
-                rollError.isHidden = false
-                findStudentSubmitButton.isEnabled = false
+        if let id = rollNoTF.text {
+            if let errorMessage = invalidId(id) {
+                rollErrorLbl.text = errorMessage
+                rollErrorLbl.isHidden = false
+                submitButton.isEnabled = false
             }
-            else
-            {
-                rollError.isHidden = true
+            else {
+                rollErrorLbl.isHidden = true
+                submitButton.isEnabled = true
             }
         }
-        checkForValidFSearch()
     }
-    func invalidId (_ value : String)->String?
-    {
-        if (value.isEmpty)
-        {
+    func invalidId (_ value : String) -> String? {
+        if (value.isEmpty) {
             return "Field is Required "
         }
         let set = CharacterSet(charactersIn: value)
-        if !CharacterSet.decimalDigits.isSuperset(of: set)
-        {
+        if !CharacterSet.decimalDigits.isSuperset(of: set) {
             return "Field can only contain numbers"
         }
-        
         return nil
     }
-    
-    func checkForValidFSearch()
-    {
-        if rollError.isHidden
-        {
-            findStudentSubmitButton.isEnabled = true
-        }
-        else
-        {
-            findStudentSubmitButton.isEnabled = false
-        }
 
-    }
     @IBAction func searchStudentButtonPressed(_ sender: Any) {
         /*for student in collegeDb.students
         {
@@ -76,62 +56,58 @@ class FindStudentViewController: UIViewController,UITextFieldDelegate
             }
             
         }*/
-        let tempStudent = collegeDb.searchStudentWithRollNo(rollNo: Int(rollID.text!)! )
-        guard let temp=tempStudent else
-        {
-            foundStudentName.isHidden = false
-            foundStudentName.text = "Student Not Found"
-            foundStudentId.isHidden = true
-            foundStudentAddress.isHidden = true
-            foundStudentEmailId.isHidden = true
-            foundStudentPhoneNo.isHidden = true
+        guard let rollNo = rollNoTF.text else { return }
+        if let tempStudent = collegeDb.fetchStudent(rollNo: rollNo ) {
+                shouldShowStudentDetails(showName: false, showOthers: false)
+                nameTF.text=tempStudent.nameOfStudent
+                idTF.text=String(tempStudent.studentId)
+            // Address not complete
+                addressTF.text="\(tempStudent.addressOfStudent.city),\(tempStudent.addressOfStudent.state),\(tempStudent.addressOfStudent.pincode)"
+                emailTF.text=tempStudent.emailId
+                phoneNoTF.text=tempStudent.phoneNo
+        }
+        else {
+            nameTF.text = "Student Not Found"
+            shouldShowStudentDetails(showName: false, showOthers: true)
             return
         }
-        
-        foundStudentName.isHidden = false
-        foundStudentId.isHidden = false
-        foundStudentAddress.isHidden = false
-        foundStudentEmailId.isHidden = false
-        foundStudentPhoneNo.isHidden = false
-            foundStudentName.text=temp.nameOfStudent
-            foundStudentId.text=String(temp.studentId)
-        // Address not complete
-            foundStudentAddress.text="\(temp.addressOfStudent.city),\(temp.addressOfStudent.state),\(temp.addressOfStudent.pincode)"
-            foundStudentEmailId.text=temp.emailId
-            foundStudentPhoneNo.text=temp.phoneNo
-        
     }
-    override func viewDidLoad()
-      {
+    
+    private func shouldShowStudentDetails(showName: Bool, showOthers: Bool) {
+        nameTF.isHidden = showName
+        idTF.isHidden = showOthers
+        addressTF.isHidden = showOthers
+        emailTF.isHidden = showOthers
+        phoneNoTF.isHidden = showOthers
+    }
+    
+    override func viewDidLoad() {
           super.viewDidLoad()
-          checkForValidFSearch()
-          rollID.delegate=self
-          let tapGesture=UITapGestureRecognizer(target: self, action: #selector(RegisterStudentViewController.tapHandler))
+          submitButton.isEnabled = false
+          rollNoTF.delegate=self
+          let tapGesture=UITapGestureRecognizer(target: self, action: #selector(tapHandler))
           view.addGestureRecognizer(tapGesture)
-          rollError.isHidden=false
-          rollError.text=""
-          
-          foundStudentName.isHidden=true
-          foundStudentId.isHidden=true
-          foundStudentAddress.isHidden=true
-          foundStudentEmailId.isHidden=true
-          foundStudentPhoneNo.isHidden=true
+          rollErrorLbl.isHidden=false
+          rollErrorLbl.text=""
+          shouldShowStudentDetails(showName: true, showOthers: true)
+
       }
-   @objc func tapHandler ()
-     {
+   @objc func tapHandler () {
          view.endEditing(true)
      }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
+    
+    
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        if  let nextButton = storyboard?.instantiateViewController(withIdentifier: "StudentTableViewController") as? StudentTableViewController {
+        present(nextButton, animated: true)
+        }
+    }
+}
+
+//MARK: UITextFieldDelegate
+extension FindStudentViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
-    @IBAction func nextButtonPressed(_ sender: Any) {
-        let nextButton = storyboard?.instantiateViewController(withIdentifier: "AllStudentViewController") as! AllStudentViewController
-        //present(nextButton, animated: true)
-        navigationController?.pushViewController(nextButton, animated: true)
-    }
-    
-    
 }

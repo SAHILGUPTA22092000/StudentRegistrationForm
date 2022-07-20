@@ -278,24 +278,24 @@
                     </view>
                     <navigationItem key="navigationItem" id="CVf-bK-dAE"/>
                     <connections>
-                        <outlet property="buildingName" destination="q4e-dq-XNC" id="2Yk-fZ-SzC"/>
-                        <outlet property="buildingNo" destination="o66-yi-pM0" id="0Bc-rV-apE"/>
-                        <outlet property="cityError" destination="xmY-xW-uX0" id="75W-47-Nev"/>
-                        <outlet property="cityName" destination="odf-R5-Q3g" id="4yS-6Q-RgY"/>
-                        <outlet property="emailError" destination="vSk-FZ-ZJL" id="F24-8W-M5u"/>
-                        <outlet property="emailId" destination="ljV-LN-B0c" id="0qU-Tk-qtU"/>
-                        <outlet property="idError" destination="naK-KE-5YG" id="XjS-bV-8Kc"/>
-                        <outlet property="nameError" destination="fU8-6r-d3d" id="VE6-Pk-GC8"/>
-                        <outlet property="nameOfStudent" destination="8H4-0I-cJK" id="4lh-pb-QYo"/>
-                        <outlet property="nextButtonToFindStudentPage" destination="cBs-VR-hDN" id="Mws-Bf-ZaO"/>
-                        <outlet property="phoneError" destination="led-jh-KPj" id="dGr-ky-Tbo"/>
-                        <outlet property="phoneNo" destination="aTa-r5-YY2" id="TMI-Zr-1dF"/>
-                        <outlet property="pinCode" destination="KtG-Pq-gwF" id="PDV-Gg-FBo"/>
-                        <outlet property="pinCodeError" destination="mHX-YU-f14" id="76J-1i-eI6"/>
-                        <outlet property="rollNumber" destination="81Q-in-1bI" id="636-pn-V1x"/>
-                        <outlet property="stateError" destination="Odk-wz-eGI" id="cDX-ge-Q6P"/>
-                        <outlet property="stateName" destination="uji-eI-VCi" id="2gV-Np-l1Q"/>
-                        <outlet property="streetName" destination="jUz-R5-bGd" id="pRV-2z-k88"/>
+                        <outlet property="buildingNameTF" destination="q4e-dq-XNC" id="2Yk-fZ-SzC"/>
+                        <outlet property="buildingNoTF" destination="o66-yi-pM0" id="0Bc-rV-apE"/>
+                        <outlet property="cityErrorLbl" destination="xmY-xW-uX0" id="75W-47-Nev"/>
+                        <outlet property="cityTF" destination="odf-R5-Q3g" id="4yS-6Q-RgY"/>
+                        <outlet property="emailErrorLbl" destination="vSk-FZ-ZJL" id="F24-8W-M5u"/>
+                        <outlet property="emailTF" destination="ljV-LN-B0c" id="0qU-Tk-qtU"/>
+                        <outlet property="nameErrorLbl" destination="fU8-6r-d3d" id="VE6-Pk-GC8"/>
+                        <outlet property="nameTF" destination="8H4-0I-cJK" id="4lh-pb-QYo"/>
+                        <outlet property="nextButton" destination="cBs-VR-hDN" id="Mws-Bf-ZaO"/>
+                        <outlet property="phoneErrorLbl" destination="led-jh-KPj" id="dGr-ky-Tbo"/>
+                        <outlet property="phoneNoTF" destination="aTa-r5-YY2" id="TMI-Zr-1dF"/>
+                        <outlet property="pinCodeErrorLbl" destination="mHX-YU-f14" id="76J-1i-eI6"/>
+                        <outlet property="pinCodeTF" destination="KtG-Pq-gwF" id="PDV-Gg-FBo"/>
+                        <outlet property="rollNoErrorLbl" destination="naK-KE-5YG" id="XjS-bV-8Kc"/>
+                        <outlet property="rollNoTF" destination="81Q-in-1bI" id="636-pn-V1x"/>
+                        <outlet property="stateErrorLbl" destination="Odk-wz-eGI" id="cDX-ge-Q6P"/>
+                        <outlet property="stateTF" destination="uji-eI-VCi" id="2gV-Np-l1Q"/>
+                        <outlet property="streetTF" destination="jUz-R5-bGd" id="pRV-2z-k88"/>
                         <outlet property="submitButton" destination="ywt-wr-N7C" id="O96-Aj-M9r"/>
                     </connections>
                 </viewController>
@@ -312,7 +312,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIND THE STUDENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hz-Bx-LPm">
-                                <rect key="frame" x="40" y="49" width="310" height="21"/>
+                                <rect key="frame" x="117.33333333333333" y="49" width="155.66666666666669" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -339,7 +339,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
-                                    <action selector="searchStudentButtonPressed:" destination="ohh-R4-WFa" eventType="touchUpInside" id="jnf-u1-1lI"/>
+                                    <action selector="searchStudentButtonPressed:" destination="ohh-R4-WFa" eventType="touchUpInside" id="7IT-Se-b7h"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cD1-ZA-7Xb">
@@ -384,7 +384,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Next"/>
                                 <connections>
-                                    <action selector="nextButtonPressed:" destination="ohh-R4-WFa" eventType="touchUpInside" id="Q1n-7p-wpF"/>
+                                    <action selector="nextButtonPressed:" destination="ohh-R4-WFa" eventType="touchUpInside" id="3ou-xT-2MP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -392,7 +392,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JN1-m6-D89" firstAttribute="trailing" secondItem="cD1-ZA-7Xb" secondAttribute="trailing" constant="20" id="1w2-zf-pW0"/>
-                            <constraint firstItem="JN1-m6-D89" firstAttribute="trailing" secondItem="3Hz-Bx-LPm" secondAttribute="trailing" constant="40" id="3l1-Bm-IkT"/>
                             <constraint firstItem="JN1-m6-D89" firstAttribute="trailing" secondItem="shU-rD-lQC" secondAttribute="trailing" constant="20" id="48H-uf-rkb"/>
                             <constraint firstItem="ZaC-4n-BNS" firstAttribute="top" secondItem="cD1-ZA-7Xb" secondAttribute="bottom" constant="20" id="5eK-uG-pVp"/>
                             <constraint firstItem="qM4-fJ-Ber" firstAttribute="top" secondItem="o8q-tF-xjP" secondAttribute="bottom" constant="10" id="6dp-ht-TaE"/>
@@ -419,7 +418,6 @@
                             <constraint firstItem="f7i-pM-eFc" firstAttribute="trailing" secondItem="cD1-ZA-7Xb" secondAttribute="trailing" id="knA-Dc-b0B"/>
                             <constraint firstItem="BGi-wu-IXW" firstAttribute="leading" secondItem="cD1-ZA-7Xb" secondAttribute="leading" id="o3W-my-w3l"/>
                             <constraint firstItem="21G-25-PLZ" firstAttribute="leading" secondItem="JN1-m6-D89" secondAttribute="leading" constant="20" id="o6t-av-hg9"/>
-                            <constraint firstItem="3Hz-Bx-LPm" firstAttribute="leading" secondItem="JN1-m6-D89" secondAttribute="leading" constant="40" id="oFO-q9-RC1"/>
                             <constraint firstItem="3Hz-Bx-LPm" firstAttribute="top" secondItem="JN1-m6-D89" secondAttribute="top" constant="5" id="r7i-qD-vkM"/>
                             <constraint firstItem="21G-25-PLZ" firstAttribute="top" secondItem="shU-rD-lQC" secondAttribute="bottom" constant="20" id="rYO-TF-Ooj"/>
                             <constraint firstItem="JN1-m6-D89" firstAttribute="trailing" secondItem="o8q-tF-xjP" secondAttribute="trailing" constant="20" id="vgM-sR-dFK"/>
@@ -429,25 +427,25 @@
                     </view>
                     <navigationItem key="navigationItem" id="LXx-Wz-6fs"/>
                     <connections>
-                        <outlet property="buttonToPage3" destination="Bp5-uu-xK3" id="d58-pV-aqx"/>
-                        <outlet property="findStudentSubmitButton" destination="qM4-fJ-Ber" id="5DO-se-uWx"/>
-                        <outlet property="foundStudentAddress" destination="BGi-wu-IXW" id="Ft6-2V-YcB"/>
-                        <outlet property="foundStudentEmailId" destination="nvP-Gw-A7A" id="Geh-6o-9j4"/>
-                        <outlet property="foundStudentId" destination="ZaC-4n-BNS" id="hNO-pj-Eqr"/>
-                        <outlet property="foundStudentName" destination="cD1-ZA-7Xb" id="Oie-jB-Hqc"/>
-                        <outlet property="foundStudentPhoneNo" destination="f7i-pM-eFc" id="sAJ-fV-705"/>
-                        <outlet property="rollError" destination="o8q-tF-xjP" id="ggI-dP-teg"/>
-                        <outlet property="rollID" destination="21G-25-PLZ" id="MwI-7j-aOw"/>
+                        <outlet property="addressTF" destination="BGi-wu-IXW" id="7aS-jV-f48"/>
+                        <outlet property="emailTF" destination="f7i-pM-eFc" id="0Z2-lb-KPA"/>
+                        <outlet property="idTF" destination="ZaC-4n-BNS" id="i0e-zX-aMN"/>
+                        <outlet property="nameTF" destination="cD1-ZA-7Xb" id="yGR-hK-vUd"/>
+                        <outlet property="nextButton" destination="Bp5-uu-xK3" id="UiF-T6-5ly"/>
+                        <outlet property="phoneNoTF" destination="nvP-Gw-A7A" id="hqY-zD-ZhI"/>
+                        <outlet property="rollErrorLbl" destination="o8q-tF-xjP" id="IZL-pc-0aN"/>
+                        <outlet property="rollNoTF" destination="21G-25-PLZ" id="IFX-4w-2jg"/>
+                        <outlet property="submitButton" destination="qM4-fJ-Ber" id="XW4-TO-eWH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wai-7b-lcl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="795" y="65"/>
         </scene>
-        <!--All Student View Controller-->
+        <!--Student Table View Controller-->
         <scene sceneID="qxB-me-eFO">
             <objects>
-                <viewController storyboardIdentifier="AllStudentViewController" id="bM9-Xo-2I1" customClass="AllStudentViewController" customModule="Student" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentTableViewController" id="bM9-Xo-2I1" customClass="StudentTableViewController" customModule="Student" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qnt-i9-PIW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -468,7 +466,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CuY-nu-5Pt"/>
                     <connections>
-                        <outlet property="AllStudentPageTable" destination="Gkx-ti-OmR" id="eAG-Xj-H74"/>
+                        <outlet property="studentTableView" destination="Gkx-ti-OmR" id="eAG-Xj-H74"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFQ-uX-IdE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

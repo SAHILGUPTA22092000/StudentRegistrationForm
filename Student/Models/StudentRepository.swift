@@ -7,16 +7,14 @@
 
 import Foundation
 
-// brackets should start from func name itself
 class StudentRepository {
     var students : [Student] = []
     
-    func addStudent(_ tempStudent : Student )
-    {
+    func addStudent(_ tempStudent : Student ) {
         students.append(tempStudent)
     }
     //fetchStudent(rollno)
-    func searchStudentWithRollNo(rollNo : Int)->Student? {
+    func fetchStudent(rollNo : String)->Student? {
        /* for student in students {
             if student.studentId == rollNo
             {
@@ -35,7 +33,7 @@ class StudentRepository {
          
         print("Student not Found of Roll No \(rollNo)")*/
         
-       return collegeDb.students.filter{ $0.studentId == rollNo }.first
+       return collegeDb.students.filter{ $0.studentId == Int(rollNo) }.first
     }
    
     

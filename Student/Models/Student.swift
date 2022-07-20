@@ -32,10 +32,8 @@ class Student {
         emailId = eId
         
     }
-   
 }
 
-// new page
 
 
 

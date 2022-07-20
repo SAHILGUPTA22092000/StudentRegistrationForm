@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D84BB6E02886B65300FEE1FF /* AllStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB6DF2886B65300FEE1FF /* AllStudentViewController.swift */; };
-		D84BB6E32886B67500FEE1FF /* AllStudentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB6E12886B67500FEE1FF /* AllStudentViewCell.swift */; };
-		D84BB6E42886B67500FEE1FF /* AllStudentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84BB6E22886B67500FEE1FF /* AllStudentViewCell.xib */; };
+		D84BB6E02886B65300FEE1FF /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB6DF2886B65300FEE1FF /* StudentTableViewController.swift */; };
+		D84BB6E32886B67500FEE1FF /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB6E12886B67500FEE1FF /* StudentTableViewCell.swift */; };
+		D84BB6E42886B67500FEE1FF /* StudentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84BB6E22886B67500FEE1FF /* StudentTableViewCell.xib */; };
 		D860AAB228857409001915FB /* FindStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860AAB128857409001915FB /* FindStudentViewController.swift */; };
 		D8C64AFC2884FDDF0011F2E3 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C64AFB2884FDDF0011F2E3 /* Student.swift */; };
 		D8CB96DC2884A568003C93C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CB96DB2884A568003C93C3 /* AppDelegate.swift */; };
@@ -23,9 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D84BB6DF2886B65300FEE1FF /* AllStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStudentViewController.swift; sourceTree = "<group>"; };
-		D84BB6E12886B67500FEE1FF /* AllStudentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStudentViewCell.swift; sourceTree = "<group>"; };
-		D84BB6E22886B67500FEE1FF /* AllStudentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllStudentViewCell.xib; sourceTree = "<group>"; };
+		D84BB6DF2886B65300FEE1FF /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
+		D84BB6E12886B67500FEE1FF /* StudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
+		D84BB6E22886B67500FEE1FF /* StudentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentTableViewCell.xib; sourceTree = "<group>"; };
 		D860AAB128857409001915FB /* FindStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindStudentViewController.swift; sourceTree = "<group>"; };
 		D8C64AFB2884FDDF0011F2E3 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		D8CB96D82884A568003C93C3 /* Student.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Student.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,9 +80,9 @@
 				D8CB96E92884A569003C93C3 /* Info.plist */,
 				D8CB96EF2884A7CF003C93C3 /* RegisterStudentViewController.swift */,
 				D860AAB128857409001915FB /* FindStudentViewController.swift */,
-				D84BB6DF2886B65300FEE1FF /* AllStudentViewController.swift */,
-				D84BB6E12886B67500FEE1FF /* AllStudentViewCell.swift */,
-				D84BB6E22886B67500FEE1FF /* AllStudentViewCell.xib */,
+				D84BB6DF2886B65300FEE1FF /* StudentTableViewController.swift */,
+				D84BB6E12886B67500FEE1FF /* StudentTableViewCell.swift */,
+				D84BB6E22886B67500FEE1FF /* StudentTableViewCell.xib */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 			files = (
 				D8CB96E82884A569003C93C3 /* LaunchScreen.storyboard in Resources */,
 				D8CB96E52884A569003C93C3 /* Assets.xcassets in Resources */,
-				D84BB6E42886B67500FEE1FF /* AllStudentViewCell.xib in Resources */,
+				D84BB6E42886B67500FEE1FF /* StudentTableViewCell.xib in Resources */,
 				D8CB96E32884A568003C93C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,10 +172,10 @@
 				D8CB96F02884A7CF003C93C3 /* RegisterStudentViewController.swift in Sources */,
 				D8DD523B2887AE0200132741 /* StudentRepository.swift in Sources */,
 				D8C64AFC2884FDDF0011F2E3 /* Student.swift in Sources */,
-				D84BB6E02886B65300FEE1FF /* AllStudentViewController.swift in Sources */,
+				D84BB6E02886B65300FEE1FF /* StudentTableViewController.swift in Sources */,
 				D860AAB228857409001915FB /* FindStudentViewController.swift in Sources */,
 				D8CB96DC2884A568003C93C3 /* AppDelegate.swift in Sources */,
-				D84BB6E32886B67500FEE1FF /* AllStudentViewCell.swift in Sources */,
+				D84BB6E32886B67500FEE1FF /* StudentTableViewCell.swift in Sources */,
 				D8CB96DE2884A568003C93C3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
