@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D860AAB228857409001915FB /* findStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860AAB128857409001915FB /* findStudentViewController.swift */; };
-		D8C64AFC2884FDDF0011F2E3 /* studentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C64AFB2884FDDF0011F2E3 /* studentDetails.swift */; };
+		D84BB6E02886B65300FEE1FF /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB6DF2886B65300FEE1FF /* StudentTableViewController.swift */; };
+		D84BB6E32886B67500FEE1FF /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB6E12886B67500FEE1FF /* StudentTableViewCell.swift */; };
+		D84BB6E42886B67500FEE1FF /* StudentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84BB6E22886B67500FEE1FF /* StudentTableViewCell.xib */; };
+		D860AAB228857409001915FB /* FindStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860AAB128857409001915FB /* FindStudentViewController.swift */; };
+		D8C64AFC2884FDDF0011F2E3 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C64AFB2884FDDF0011F2E3 /* Student.swift */; };
 		D8CB96DC2884A568003C93C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CB96DB2884A568003C93C3 /* AppDelegate.swift */; };
 		D8CB96DE2884A568003C93C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CB96DD2884A568003C93C3 /* SceneDelegate.swift */; };
 		D8CB96E02884A568003C93C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CB96DF2884A568003C93C3 /* ViewController.swift */; };
@@ -16,11 +19,15 @@
 		D8CB96E52884A569003C93C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8CB96E42884A569003C93C3 /* Assets.xcassets */; };
 		D8CB96E82884A569003C93C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CB96E62884A569003C93C3 /* LaunchScreen.storyboard */; };
 		D8CB96F02884A7CF003C93C3 /* RegisterStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CB96EF2884A7CF003C93C3 /* RegisterStudentViewController.swift */; };
+		D8DD523B2887AE0200132741 /* StudentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DD523A2887AE0200132741 /* StudentRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D860AAB128857409001915FB /* findStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findStudentViewController.swift; sourceTree = "<group>"; };
-		D8C64AFB2884FDDF0011F2E3 /* studentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentDetails.swift; sourceTree = "<group>"; };
+		D84BB6DF2886B65300FEE1FF /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
+		D84BB6E12886B67500FEE1FF /* StudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
+		D84BB6E22886B67500FEE1FF /* StudentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentTableViewCell.xib; sourceTree = "<group>"; };
+		D860AAB128857409001915FB /* FindStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindStudentViewController.swift; sourceTree = "<group>"; };
+		D8C64AFB2884FDDF0011F2E3 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		D8CB96D82884A568003C93C3 /* Student.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Student.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CB96DB2884A568003C93C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8CB96DD2884A568003C93C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +37,7 @@
 		D8CB96E72884A569003C93C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8CB96E92884A569003C93C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8CB96EF2884A7CF003C93C3 /* RegisterStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStudentViewController.swift; sourceTree = "<group>"; };
+		D8DD523A2887AE0200132741 /* StudentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +76,24 @@
 				D8CB96E12884A568003C93C3 /* Main.storyboard */,
 				D8CB96E42884A569003C93C3 /* Assets.xcassets */,
 				D8CB96E62884A569003C93C3 /* LaunchScreen.storyboard */,
+				D8DD523C2887AE1B00132741 /* Models */,
 				D8CB96E92884A569003C93C3 /* Info.plist */,
 				D8CB96EF2884A7CF003C93C3 /* RegisterStudentViewController.swift */,
-				D8C64AFB2884FDDF0011F2E3 /* studentDetails.swift */,
-				D860AAB128857409001915FB /* findStudentViewController.swift */,
+				D860AAB128857409001915FB /* FindStudentViewController.swift */,
+				D84BB6DF2886B65300FEE1FF /* StudentTableViewController.swift */,
+				D84BB6E12886B67500FEE1FF /* StudentTableViewCell.swift */,
+				D84BB6E22886B67500FEE1FF /* StudentTableViewCell.xib */,
 			);
 			path = Student;
+			sourceTree = "<group>";
+		};
+		D8DD523C2887AE1B00132741 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D8C64AFB2884FDDF0011F2E3 /* Student.swift */,
+				D8DD523A2887AE0200132741 /* StudentRepository.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +156,7 @@
 			files = (
 				D8CB96E82884A569003C93C3 /* LaunchScreen.storyboard in Resources */,
 				D8CB96E52884A569003C93C3 /* Assets.xcassets in Resources */,
+				D84BB6E42886B67500FEE1FF /* StudentTableViewCell.xib in Resources */,
 				D8CB96E32884A568003C93C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,9 +170,12 @@
 			files = (
 				D8CB96E02884A568003C93C3 /* ViewController.swift in Sources */,
 				D8CB96F02884A7CF003C93C3 /* RegisterStudentViewController.swift in Sources */,
-				D8C64AFC2884FDDF0011F2E3 /* studentDetails.swift in Sources */,
-				D860AAB228857409001915FB /* findStudentViewController.swift in Sources */,
+				D8DD523B2887AE0200132741 /* StudentRepository.swift in Sources */,
+				D8C64AFC2884FDDF0011F2E3 /* Student.swift in Sources */,
+				D84BB6E02886B65300FEE1FF /* StudentTableViewController.swift in Sources */,
+				D860AAB228857409001915FB /* FindStudentViewController.swift in Sources */,
 				D8CB96DC2884A568003C93C3 /* AppDelegate.swift in Sources */,
+				D84BB6E32886B67500FEE1FF /* StudentTableViewCell.swift in Sources */,
 				D8CB96DE2884A568003C93C3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

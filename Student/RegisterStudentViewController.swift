@@ -7,304 +7,242 @@
 
 import UIKit
 
-class RegisterStudentViewController: UIViewController,UITextFieldDelegate {
+class RegisterStudentViewController: UIViewController {
 
-    @IBOutlet weak var nameOfStudent: UITextField!
-    @IBOutlet weak var rollNumber: UITextField!
-    @IBOutlet weak var buildingNo: UITextField!
-    @IBOutlet weak var buildingName: UITextField!
-    @IBOutlet weak var streetName: UITextField!
-    @IBOutlet weak var cityName: UITextField!
-    @IBOutlet weak var stateName: UITextField!
-    @IBOutlet weak var pinCode: UITextField!
-    @IBOutlet weak var emailId: UITextField!
-    @IBOutlet weak var phoneNo: UITextField!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var rollNoTF: UITextField!
+    @IBOutlet weak var buildingNoTF: UITextField!
+    @IBOutlet weak var buildingNameTF: UITextField!
+    @IBOutlet weak var streetTF: UITextField!
+    @IBOutlet weak var cityTF: UITextField!
+    @IBOutlet weak var stateTF: UITextField!
+    @IBOutlet weak var pinCodeTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var phoneNoTF: UITextField!
+    @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
     
-    @IBOutlet weak var nameError: UILabel!
-    @IBOutlet weak var idError: UILabel!
-    @IBOutlet weak var cityError: UILabel!
-    @IBOutlet weak var stateError: UILabel!
-    @IBOutlet weak var pinCodeError: UILabel!
-    @IBOutlet weak var emailError: UILabel!
-    @IBOutlet weak var phoneError: UILabel!
+    @IBOutlet weak var nameErrorLbl: UILabel!
+    @IBOutlet weak var rollNoErrorLbl: UILabel!
+    @IBOutlet weak var cityErrorLbl: UILabel!
+    @IBOutlet weak var stateErrorLbl: UILabel!
+    @IBOutlet weak var pinCodeErrorLbl: UILabel!
+    @IBOutlet weak var emailErrorLbl: UILabel!
+    @IBOutlet weak var phoneErrorLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         resetForm()
-        nameOfStudent.delegate=self
-        rollNumber.delegate=self
-        buildingNo.delegate=self
-        buildingName.delegate=self
-        streetName.delegate=self
-        cityName.delegate=self
-        stateName.delegate=self
-        pinCode.delegate=self
-        emailId.delegate=self
-        phoneNo.delegate=self
-        let tapGesture=UITapGestureRecognizer(target: self, action: #selector(RegisterStudentViewController.tapHandler))
+        nameTF.delegate=self
+        rollNoTF.delegate=self
+        buildingNoTF.delegate=self
+        buildingNameTF.delegate=self
+        streetTF.delegate=self
+        cityTF.delegate=self
+        stateTF.delegate=self
+        pinCodeTF.delegate=self
+        emailTF.delegate=self
+        phoneNoTF.delegate=self
+        let tapGesture=UITapGestureRecognizer(target: self, action: #selector(tapHandler))
         view.addGestureRecognizer(tapGesture)
-        // Do any additional setup after loading the view.
     }
-   @objc func tapHandler ()
-    {
+   @objc func tapHandler () {
         view.endEditing(true)
     }
     
-    func resetForm ()
-    {
-        submitButton.isEnabled = false
+    func resetForm () {
+        submitBtn.isEnabled = false
         
-        nameError.isHidden = false
-        idError.isHidden = false
-        cityError.isHidden = false
-        stateError.isHidden = false
-        pinCodeError.isHidden = false
-        emailError.isHidden = false
-        phoneError.isHidden = false
+        nameErrorLbl.isHidden = false
+        rollNoErrorLbl.isHidden = false
+        cityErrorLbl.isHidden = false
+        stateErrorLbl.isHidden = false
+        pinCodeErrorLbl.isHidden = false
+        emailErrorLbl.isHidden = false
+        phoneErrorLbl.isHidden = false
         
-        nameError.text=""
-        idError.text=""
-        cityError.text=""
-        stateError.text=""
-        pinCodeError.text=""
-        emailError.text=""
-        phoneError.text=""
+        nameErrorLbl.text = ""
+        rollNoErrorLbl.text = ""
+        cityErrorLbl.text = ""
+        stateErrorLbl.text = ""
+        pinCodeErrorLbl.text = ""
+        emailErrorLbl.text = ""
+        phoneErrorLbl.text = ""
         
-        nameOfStudent.text = ""
-        nameOfStudent.text = ""
-        rollNumber.text = ""
-        buildingNo.text = ""
-        buildingName.text = ""
-        streetName.text = ""
-        cityName.text = ""
-        stateName.text = ""
-        pinCode.text = ""
-        emailId.text = ""
-        phoneNo.text = ""
+        nameTF.text = ""
+        nameTF.text = ""
+        rollNoTF.text = ""
+        buildingNoTF.text = ""
+        buildingNameTF.text = ""
+        streetTF.text = ""
+        cityTF.text = ""
+        stateTF.text = ""
+        pinCodeTF.text = ""
+        emailTF.text = ""
+        phoneNoTF.text = ""
         
     }
-    
-    
     
     @IBAction func nameChange(_ sender: Any) {
-        if let name = nameOfStudent.text
-        {
-            if let errorMessage = invalidName(name)
-            {
-                nameError.text = errorMessage
-                nameError.isHidden = false
+        if let name = nameTF.text, let errorMessage = invalidName(name) {
+                nameErrorLbl.text = errorMessage
+                nameErrorLbl.isHidden = false
             }
-            else
-            {
-                nameError.isHidden = true
+            else {
+                nameErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
-    func invalidName (_ value : String)->String?
-    {
-        if (value.isEmpty)
-        {
-            return "Field is Required "
-        }
-        let characters = CharacterSet.letters
-        let nonCharacters=characters.inverted
-        if value.rangeOfCharacter(from: nonCharacters) != nil
-        {
-            return "Field can only Contain Letters"
-        }
-        return nil
-    }
-   
-    
-    
-   
+  
     @IBAction func idChange(_ sender: Any) {
         
-        if let id = rollNumber.text
-        {
-            if let errorMessage = invalidId(id)
-            {
-                idError.text = errorMessage
-                idError.isHidden = false
+        if let id = rollNoTF.text, let errorMessage = invalidId(id) {
+                rollNoErrorLbl.text = errorMessage
+                rollNoErrorLbl.isHidden = false
             }
-            else
-            {
-                idError.isHidden = true
+            else {
+                rollNoErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
-    func invalidId (_ value : String)->String?
-    {
-        if (value.isEmpty)
-        {
-            return "Field is Required "
-        }
-        let set = CharacterSet(charactersIn: value)
-        if !CharacterSet.decimalDigits.isSuperset(of: set)
-        {
-            return "Field can only contain numbers"
-        }
-        
-        return nil
-    }
-    
-    
- 
+
     @IBAction func cityChanged(_ sender: Any) {
-        if let city = cityName.text
-        {
-            if let errorMessage = invalidName(city)
-            {
-                cityError.text = errorMessage
-                cityError.isHidden = false
+        if let city = cityTF.text, let errorMessage = invalidName(city) {
+                cityErrorLbl.text = errorMessage
+                cityErrorLbl.isHidden = false
             }
-            else
-            {
-                cityError.isHidden = true
+            else {
+                cityErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
     
     @IBAction func stateChanged(_ sender: Any) {
-        if let state = stateName.text
-        {
-            if let errorMessage = invalidName(state)
-            {
-                stateError.text = errorMessage
-                stateError.isHidden = false
+        if let state = stateTF.text, let errorMessage = invalidName(state) {
+                stateErrorLbl.text = errorMessage
+                stateErrorLbl.isHidden = false
             }
-            else
-            {
-                stateError.isHidden = true
+            else {
+                stateErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
     
     @IBAction func pincodeChanged(_ sender: Any) {
-        if let pin = pinCode.text
-        {
-            if let errorMessage = invalidId(pin)
-            {
-                pinCodeError.text = errorMessage
-                pinCodeError.isHidden = false
+        if let pin = pinCodeTF.text, let errorMessage = invalidId(pin) {
+                pinCodeErrorLbl.text = errorMessage
+                pinCodeErrorLbl.isHidden = false
             }
-            else
-            {
-                pinCodeError.isHidden = true
+            else {
+                pinCodeErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
-    
-    
     
     @IBAction func emailChanged(_ sender: Any) {
-        checkForValidForm()
-        if let email = emailId.text
-        {
-            if let errorMessage = invalidEmail(email)
-            {
-                emailError.text = errorMessage
-                emailError.isHidden = false
+        if let email = emailTF.text, let errorMessage = invalidEmail(email) {
+                emailErrorLbl.text = errorMessage
+                emailErrorLbl.isHidden = false
             }
-            else
-            {
-                emailError.isHidden = true
+            else {
+                emailErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
-    func invalidEmail (_ value : String)->String?
-    {
-        if (value.isEmpty)
-        {
+    private func invalidEmail (_ value : String) -> String? {
+        if value.isEmpty {
             return "Field is Required "
         }
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        if !emailTest.evaluate(with: value)
-        {
+        if !emailTest.evaluate(with: value) {
             return "Invalid Email Address"
         }
         return nil
     }
     
-    
-    
     @IBAction func phoneChanged(_ sender: Any) {
-        
-        if let phone = phoneNo.text
-        {
-            if let errorMessage = invalidPhone(phone)
-            {
-                phoneError.text = errorMessage
-                phoneError.isHidden = false
+        if let phone = phoneNoTF.text, let errorMessage = invalidPhone(phone) {
+                phoneErrorLbl.text = errorMessage
+                phoneErrorLbl.isHidden = false
             }
-            else
-            {
-                phoneError.isHidden = true
+            else {
+                phoneErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
-    func invalidPhone (_ value : String)->String?
-    {
-        if value.count != 10
-        {
+    private func invalidPhone (_ value : String) -> String? {
+        if value.count != 10 {
             return "Phone Number must contain 10 digits "
         }
-        if value.isEmpty
-        {
+        if value.isEmpty {
             return "Phone Number is Required "
         }
         let set = CharacterSet(charactersIn: value)
-        if !CharacterSet.decimalDigits.isSuperset(of: set)
-        {
+        if !CharacterSet.decimalDigits.isSuperset(of: set){
             return "Phone Number can only contain numbers"
         }
         return nil
     }
     
     
-    func checkForValidForm()
-    {
-        if nameError.isHidden && idError.isHidden && cityError.isHidden && stateError.isHidden && pinCodeError.isHidden && emailError.isHidden && phoneError.isHidden
-        {
-            submitButton.isEnabled = true
+    func invalidName (_ value : String) -> String? {
+        if (value.isEmpty) {
+            return "Field is Required "
         }
-        else
-        {
-            submitButton.isEnabled = false
+        let characters = CharacterSet.letters
+        let nonCharacters = characters.inverted
+        if value.rangeOfCharacter(from: nonCharacters) != nil {
+            return "Field can only Contain Letters"
+        }
+        return nil
+    }
+    
+    func invalidId (_ value : String) -> String? {
+        if (value.isEmpty) {
+            return "Field is Required "
+        }
+        let set = CharacterSet(charactersIn: value)
+        if !CharacterSet.decimalDigits.isSuperset(of: set) {
+            return "Field can only contain numbers"
+        }
+        return nil
+    }
+    
+    func checkForValidForm() {
+        if nameErrorLbl.isHidden && rollNoErrorLbl.isHidden && cityErrorLbl.isHidden && stateErrorLbl.isHidden && pinCodeErrorLbl.isHidden && emailErrorLbl.isHidden && phoneErrorLbl.isHidden {
+            submitBtn.isEnabled = true
+        }
+        else {
+            submitBtn.isEnabled = false
         }
 
     }
     
-    
-    
-    @IBAction func studentRegisterSubmitButton(_ sender: Any) {
+    @IBAction func submitBtnClicked(_ sender: Any) {
         print("Submit Button Tapped")
-        //let alert = UIAlertController(title: "Alert", message: "Form is Submitted", preferredStyle: .alert)
-        //alert.addAction(UIAlertAction(title: "OK", style: .default))
-        //present(alert, animated: true)
-        
-        let rno = Int(rollNumber.text!)!
-        let bno = Int(buildingNo.text!)
-        
-        collegeDb.addStudent(name: nameOfStudent.text!, rollNo: rno, buildingnumeber: bno, buildingName: buildingName?.text, street: streetName?.text, city: cityName.text!, state: stateName.text!, pincode: pinCode.text!, pNo: phoneNo.text!, eId: emailId.text!)
-    
-        collegeDb.showStudentDetails(rollNo: 12)
+        //Doubt
+        guard let rollText = rollNoTF.text, let rno = Int(rollText) else { return }
+        if let bnoText = buildingNoTF.text, let stateTxt = stateTF.text, let phoneNoTxt = phoneNoTF.text, let emailTxt = emailTF.text, let cityTxt = cityTF.text, let pinCodeTxt = pinCodeTF.text {
+            let tempAdress = Address(buildingNumber: Int(bnoText), buildingName: buildingNameTF?.text, street: streetTF?.text, city: cityTxt, state: stateTxt, pincode: pinCodeTxt)
+            let tempStudent = Student(nameTF.text!,rno,tempAdress,phoneNoTxt,emailTxt)
+            collegeDb.addStudent(tempStudent)
+        }
         resetForm()
         
     }
+
+    @IBAction func nextBtnClicked(_ sender: Any) {
+        if let findButtonPressed = storyboard?.instantiateViewController(withIdentifier: "findStudentViewController") as? FindStudentViewController {
+        present(findButtonPressed, animated: true)
+        }
+    }
     
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
+}
+
+//MARK: UITextFieldDelegate
+extension RegisterStudentViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
