@@ -2,29 +2,25 @@ import UIKit
 
 class FindStudentViewController: UIViewController {
     @IBOutlet weak var rollNoTF: UITextField!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var idTF: UITextField!
     @IBOutlet weak var addressTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var phoneNoTF: UITextField!
     @IBOutlet weak var rollErrorLbl: UILabel!
-    
-    @IBOutlet weak var nextButton: UIButton!
-    
+    @IBOutlet weak var nextBtn: UIButton!
     
     @IBAction func rollNoEntered(_ sender: Any) {
-        if let id = rollNoTF.text {
-            if let errorMessage = invalidId(id) {
+        if let id = rollNoTF.text, let errorMessage = invalidId(id) {
                 rollErrorLbl.text = errorMessage
                 rollErrorLbl.isHidden = false
-                submitButton.isEnabled = false
+                submitBtn.isEnabled = false
             }
             else {
                 rollErrorLbl.isHidden = true
-                submitButton.isEnabled = true
+                submitBtn.isEnabled = true
             }
-        }
     }
     func invalidId (_ value : String) -> String? {
         if (value.isEmpty) {
@@ -37,25 +33,8 @@ class FindStudentViewController: UIViewController {
         return nil
     }
 
-    @IBAction func searchStudentButtonPressed(_ sender: Any) {
-        /*for student in collegeDb.students
-        {
-            if student.studentId == Int(rollID.text!)
-            {
-                foundStudentName.isHidden=false
-                foundStudentId.isHidden=false
-                foundStudentAddress.isHidden=false
-                foundStudentEmailId.isHidden=false
-                foundStudentPhoneNo.isHidden=false
-                foundStudentName.text=student.nameOfStudent
-                foundStudentId.text=String(student.studentId)
-                foundStudentAddress.text="\(student.addressOfStudent.city),\(student.addressOfStudent.state),\(student.addressOfStudent.pincode)"
-                foundStudentEmailId.text=student.emailId
-                foundStudentPhoneNo.text=student.phoneNo
-                
-            }
-            
-        }*/
+    @IBAction func submitBtnClicked(_ sender: Any) {
+   
         guard let rollNo = rollNoTF.text else { return }
         if let tempStudent = collegeDb.fetchStudent(rollNo: rollNo ) {
                 shouldShowStudentDetails(showName: false, showOthers: false)
@@ -83,7 +62,7 @@ class FindStudentViewController: UIViewController {
     
     override func viewDidLoad() {
           super.viewDidLoad()
-          submitButton.isEnabled = false
+          submitBtn.isEnabled = false
           rollNoTF.delegate = self
           let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
           view.addGestureRecognizer(tapGesture)
@@ -96,8 +75,7 @@ class FindStudentViewController: UIViewController {
          view.endEditing(true)
      }
     
-    
-    @IBAction func nextButtonPressed(_ sender: Any) {
+    @IBAction func nextBtnClicked(_ sender: Any) {
         if  let nextButton = storyboard?.instantiateViewController(withIdentifier: "StudentTableViewController") as? StudentTableViewController {
         present(nextButton, animated: true)
         }

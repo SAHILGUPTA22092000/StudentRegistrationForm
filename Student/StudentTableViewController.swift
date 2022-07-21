@@ -9,12 +9,7 @@ import UIKit
 
 class StudentTableViewController: UIViewController {
     
-    
-
     @IBOutlet weak var studentTableView: UITableView!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +17,7 @@ class StudentTableViewController: UIViewController {
         studentTableView.delegate = self
         studentTableView.dataSource = self
         studentTableView.rowHeight = UITableView.automaticDimension
-//        studentTableView.estimatedRowHeight=100
+//      studentTableView.estimatedRowHeight=100
     }
 }
 
@@ -33,8 +28,10 @@ extension StudentTableViewController : UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let studentTableViewCell = studentTableView.dequeueReusableCell(withIdentifier: "StudentTableViewCell", for: indexPath) as! StudentTableViewCell
-        studentTableViewCell.cellConfigure(with: collegeDb.students[indexPath.row].nameOfStudent,imageName: "gear")
-        return studentTableViewCell
+        if let studentTableViewCell = studentTableView.dequeueReusableCell(withIdentifier: "StudentTableViewCell", for: indexPath) as? StudentTableViewCell {
+            studentTableViewCell.cellConfigure(with: collegeDb.students[indexPath.row].nameOfStudent,imageName: "gear")
+            return studentTableViewCell
+        }
+        return UITableViewCell()
     }
 }

@@ -19,8 +19,8 @@ class RegisterStudentViewController: UIViewController {
     @IBOutlet weak var pinCodeTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var phoneNoTF: UITextField!
-    @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
     
     @IBOutlet weak var nameErrorLbl: UILabel!
     @IBOutlet weak var rollNoErrorLbl: UILabel!
@@ -51,7 +51,7 @@ class RegisterStudentViewController: UIViewController {
     }
     
     func resetForm () {
-        submitButton.isEnabled = false
+        submitBtn.isEnabled = false
         
         nameErrorLbl.isHidden = false
         rollNoErrorLbl.isHidden = false
@@ -83,84 +83,70 @@ class RegisterStudentViewController: UIViewController {
         
     }
     
-    
-    
     @IBAction func nameChange(_ sender: Any) {
-        if let name = nameTF.text {
-            if let errorMessage = invalidName(name) {
+        if let name = nameTF.text, let errorMessage = invalidName(name) {
                 nameErrorLbl.text = errorMessage
                 nameErrorLbl.isHidden = false
             }
             else {
                 nameErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
   
     @IBAction func idChange(_ sender: Any) {
         
-        if let id = rollNoTF.text {
-            if let errorMessage = invalidId(id) {
+        if let id = rollNoTF.text, let errorMessage = invalidId(id) {
                 rollNoErrorLbl.text = errorMessage
                 rollNoErrorLbl.isHidden = false
             }
             else {
                 rollNoErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
 
     @IBAction func cityChanged(_ sender: Any) {
-        if let city = cityTF.text {
-            if let errorMessage = invalidName(city) {
+        if let city = cityTF.text, let errorMessage = invalidName(city) {
                 cityErrorLbl.text = errorMessage
                 cityErrorLbl.isHidden = false
             }
             else {
                 cityErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
     
     @IBAction func stateChanged(_ sender: Any) {
-        if let state = stateTF.text {
-            if let errorMessage = invalidName(state) {
+        if let state = stateTF.text, let errorMessage = invalidName(state) {
                 stateErrorLbl.text = errorMessage
                 stateErrorLbl.isHidden = false
             }
             else {
                 stateErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
     
     @IBAction func pincodeChanged(_ sender: Any) {
-        if let pin = pinCodeTF.text {
-            if let errorMessage = invalidId(pin) {
+        if let pin = pinCodeTF.text, let errorMessage = invalidId(pin) {
                 pinCodeErrorLbl.text = errorMessage
                 pinCodeErrorLbl.isHidden = false
             }
             else {
                 pinCodeErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
     
     @IBAction func emailChanged(_ sender: Any) {
-        if let email = emailTF.text {
-            if let errorMessage = invalidEmail(email) {
+        if let email = emailTF.text, let errorMessage = invalidEmail(email) {
                 emailErrorLbl.text = errorMessage
                 emailErrorLbl.isHidden = false
             }
             else {
                 emailErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
     private func invalidEmail (_ value : String) -> String? {
@@ -175,18 +161,14 @@ class RegisterStudentViewController: UIViewController {
         return nil
     }
     
-    
-    
     @IBAction func phoneChanged(_ sender: Any) {
-        if let phone = phoneNoTF.text {
-            if let errorMessage = invalidPhone(phone) {
+        if let phone = phoneNoTF.text, let errorMessage = invalidPhone(phone) {
                 phoneErrorLbl.text = errorMessage
                 phoneErrorLbl.isHidden = false
             }
             else {
                 phoneErrorLbl.isHidden = true
             }
-        }
         checkForValidForm()
     }
     private func invalidPhone (_ value : String) -> String? {
@@ -229,38 +211,28 @@ class RegisterStudentViewController: UIViewController {
     
     func checkForValidForm() {
         if nameErrorLbl.isHidden && rollNoErrorLbl.isHidden && cityErrorLbl.isHidden && stateErrorLbl.isHidden && pinCodeErrorLbl.isHidden && emailErrorLbl.isHidden && phoneErrorLbl.isHidden {
-            submitButton.isEnabled = true
+            submitBtn.isEnabled = true
         }
         else {
-            submitButton.isEnabled = false
+            submitBtn.isEnabled = false
         }
 
     }
     
-    
-    
-    @IBAction func studentRegisterSubmitButton(_ sender: Any) {
+    @IBAction func submitBtnClicked(_ sender: Any) {
         print("Submit Button Tapped")
-        //let alert = UIAlertController(title: "Alert", message: "Form is Submitted", preferredStyle: .alert)
-        //alert.addAction(UIAlertAction(title: "OK", style: .default))
-        //present(alert, animated: true)
-        
         //Doubt
-        guard let rollText = rollNoTF.text else { return }
-        guard let rno = Int(rollText) else { return }
-        let bno = Int(buildingNoTF.text!)
-        
-        let tempAdress = Address(buildingNumber: bno, buildingName: buildingNameTF?.text, street: streetTF?.text, city: cityTF.text!, state: stateTF.text!, pincode: pinCodeTF.text!)
-        
-        let tempStudent = Student(nameTF.text!,rno,tempAdress,phoneNoTF.text!,emailTF.text!)
-        
-        collegeDb.addStudent(tempStudent)
-    
+        guard let rollText = rollNoTF.text, let rno = Int(rollText) else { return }
+        if let bnoText = buildingNoTF.text, let stateTxt = stateTF.text, let phoneNoTxt = phoneNoTF.text, let emailTxt = emailTF.text, let cityTxt = cityTF.text, let pinCodeTxt = pinCodeTF.text {
+            let tempAdress = Address(buildingNumber: Int(bnoText), buildingName: buildingNameTF?.text, street: streetTF?.text, city: cityTxt, state: stateTxt, pincode: pinCodeTxt)
+            let tempStudent = Student(nameTF.text!,rno,tempAdress,phoneNoTxt,emailTxt)
+            collegeDb.addStudent(tempStudent)
+        }
         resetForm()
         
     }
 
-    @IBAction func findButtontToSearchStudentPagePressed(_ sender: Any) {
+    @IBAction func nextBtnClicked(_ sender: Any) {
         if let findButtonPressed = storyboard?.instantiateViewController(withIdentifier: "findStudentViewController") as? FindStudentViewController {
         present(findButtonPressed, animated: true)
         }
